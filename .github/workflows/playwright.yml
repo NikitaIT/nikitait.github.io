@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Waiting for 200 from the Vercel Preview
-        uses: patrickedqvist/wait-for-vercel-preview@v1.2.0 # https://github.com/patrickedqvist/wait-for-vercel-preview
+        uses: patrickedqvist/wait-for-vercel-preview@v1.3.1 # https://github.com/patrickedqvist/wait-for-vercel-preview
         id: waitForDeploy
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
