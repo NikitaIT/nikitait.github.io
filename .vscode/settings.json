@@ -4,5 +4,31 @@
       "mode": "auto"
     }
   ],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.tabSize": 2,
+  "cSpell.language": "en-GB",
+  "cSpell.enabledLanguageIds": [
+      "csharp",
+      "go",
+      "javascript",
+      "javascriptreact",
+      "markdown",
+      "php",
+      "plaintext",
+      "typescript",
+      "typescriptreact",
+      "yml",
+      "sql",
+      "mdx"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro", // Enable .astro
+    "typescript", // Enable .ts
+    "typescriptreact" // Enable .tsx
+  ],
+  "cSpell.words": [
+    "astro"
+  ]
 }

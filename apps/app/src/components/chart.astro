@@ -1,0 +1,35 @@
+---
+import { propagateValueWithPercentage } from "../../scripts/categories";
+import { pieChart, toOpt } from "../../scripts/d3-charts";
+import { wind } from "../../scripts/window_jsdom";
+import engageJSON from "../../public/api/engage.json";
+
+const input = engageJSON;
+const results = propagateValueWithPercentage(input);
+const d = pieChart(wind(), toOpt(results));
+---
+
+<p set:html={d.outerHTML} />
+<style is:global>
+  #the-chart {
+    path.slice {
+      stroke-width: 2px;
+    }
+    .innerG {
+      polyline {
+        opacity: 0.3;
+        stroke: black;
+        stroke-width: 2px;
+        fill: none;
+      }
+    }
+    .outerG {
+      polyline {
+        opacity: 0.3;
+        stroke: rebeccapurple;
+        stroke-width: 2px;
+        fill: none;
+      }
+    }
+  }
+</style>

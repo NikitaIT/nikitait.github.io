@@ -1,0 +1,72 @@
+---
+import { getImage } from "astro:assets";
+import dissertatusImage from "../assets/images/index/guarantee.jpeg";
+const dissertatusImageOpt = await getImage({ src: dissertatusImage });
+const items = [
+  {
+    link: "/articles/trebovanija-magisterskaja-dissertacija/",
+    title: "Design of the Master's Thesis",
+    description:
+      "The master's thesis is a student's report on two years of study in graduate school, illustrating the skills developed in scientific activities. Namely: the ability to analyze information, formulate hypotheses for confirmation, choose a methodology for their proof, and analyze the results obtained.",
+  },
+  {
+    link: "/articles/oformlenie-kandidatskoj-dissertacii/",
+    title: "Design of the Candidate's Dissertation",
+    description:
+      "There are standard requirements for the design of candidate dissertations, and for 2021, they remain the same. The text volume is no less than 100, but not more than 150 pages, title page, table of contents, as well as lists of literature, symbols, and appendices are not counted. The font is standard, Times New Roman 14-point size (sometimes 12-point is allowed), line spacing is one and a half.",
+  },
+  {
+    link: "/articles/o-dissertacionnih-sovetah-polozhenie-informaciya-o-zashitah-perechen/",
+    title:
+      "About Dissertation Councils - Regulation, Information on Defenses, List",
+    description:
+      "On June 7, 2000, the Ministry of Education of the Russian Federation issued order No. 1707. The document included the main provisions on the dissertation council, instructions for the council's operation, the procedure, types, and examples of documents (8 appendices) for awarding the applicant an academic degree.",
+  },
+];
+---
+
+<div class="b-information">
+  <!--noindex-->
+  <div class="w-articles">
+    <div class="cap"></div>
+    <p class="header">Fresh Publications</p>
+    <ul class="b-items">
+      {
+        items.map((item) => (
+          <li class="item">
+            <div class="title">
+              <a href={item.link}>{item.title}</a>
+            </div>
+            <p>{item.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="article-button">
+      <a href="/articles/" class="articles-link">all publications</a>
+    </div>
+  </div>
+  <!--/noindex-->
+
+  <div
+    class="b-guarantee"
+    style={`background-image: url('${dissertatusImageOpt.src}')`}
+  >
+    We guarantee the quality of our authors' work
+  </div>
+</div>
+
+<style is:global>
+  @media (max-width: 1099px) {
+    .v-root .b-information .b-guarantee {
+      background-size: contain !important;
+      background-position: 100% 100% !important;
+      filter: grayscale(0.9);
+    }
+  }
+  .v-root .b-information .b-guarantee {
+    background-size: 230px;
+    background-position-x: 100px;
+    filter: grayscale(0.9);
+  }
+</style>

@@ -2,5 +2,14 @@
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "strictNullChecks": true
-  }
+  },
+  "include": [
+    ".astro/**/*",
+    "src/**/*",
+    "types/**/*", 
+    "scripts", 
+    "tailwind.config.ts",
+    "vitest.config.ts"
+  ],
+  "files": ["types/fetch.d.ts"],
 }

@@ -1,0 +1,286 @@
+---
+import Item from "./item.astro";
+
+type It = { element: string; children: It[] };
+interface Props {
+  children: It[];
+}
+const { children } = Astro.props as Props;
+---
+
+<ul class="tree">
+  {
+    children.map((item) => (
+      <li>
+        <div class="sub-category sticky top-0 w-full">
+          <Item>{item.element}</Item>
+        </div>
+        {item.children.length !== 0 && <Astro.self children={item.children} />}
+      </li>
+    ))
+  }
+</ul>
+<style is:global>
+  :root {
+    --background-color: white;
+    --tree-leaf-width: 40px;
+    --entry-width: 15em;
+    --card-width: calc(var(--entry-width) + var(--tree-leaf-width));
+    --card-height: 3.5em;
+    --tree-indent: calc(
+      var(--entry-width) - var(--tree-leaf-width) / 2
+    ); /* connector horizontal indent (to card's front) */
+  }
+  ul.tree,
+  ul.tree ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  ul.tree ul {
+    margin-left: var(--tree-indent);
+  }
+  ul.tree li {
+    margin: 0;
+    /* padding: 0 7px; */
+    line-height: 20px;
+    color: #369;
+    font-weight: bold;
+    border-left: 1px solid rgb(100, 100, 100);
+  }
+  ul.tree li:last-child {
+    border-left: none;
+  }
+  .entry {
+    display: flex;
+    /* align-items: center; */
+    height: var(--card-height);
+  }
+  .up {
+    /* height: 1em; */
+    height: 50%;
+    width: var(--tree-leaf-width);
+    border-bottom: 1px solid rgb(100, 100, 100);
+  }
+  li:last-child > .sub-category > .entry > .up {
+    border-left: 1px solid rgb(100, 100, 100);
+  }
+  /* ul.tree li:before {
+    position: relative;
+    height: 1em;
+    width: var(--tree-leaf-width);
+    color: rgb(167, 48, 48);
+    border-bottom: 1px solid rgb(100, 100, 100);
+    content: "";
+    display: inline-block;
+  } */
+
+  ul.tree li:last-child:before {
+    border-left: 1px solid rgb(100, 100, 100);
+  }
+
+  .tree .entry {
+    width: var(--entry-width);
+  }
+  .tree .entry .card {
+    box-sizing: border-box;
+    top: 0px;
+    right: 0px;
+    background-color: var(--background-color);
+    height: var(--card-height);
+    width: var(--card-width);
+
+    border-radius: 5px;
+    border: 1px solid var(--box-color);
+    margin: 0;
+    max-width: calc(var(--card-width) + var(--card-indent) * 0.5);
+    min-width: calc(var(--card-width) + var(--card-indent) * 0.5);
+    padding: 0px 5px 0px 5px;
+
+    background: var(--background-color);
+    box-shadow: var(--box-shadow);
+    color: var(--connector-color);
+    font-weight: bold;
+    z-index: 1;
+  }
+</style>
+<!-- <style is:global>
+  :root {
+    /* Typography */
+    --font-stack: normal normal 13px/1.4 Segoe, "Segoe UI", Calibri, Helmet,
+      FreeSans, Sans-Serif;
+
+    /* Colors */
+    --background-color: white; /* all backgrounds */
+    --connector-color: #369; /* connectors and text */
+    --shadow-color: #8f949a;
+    --box-color: #afafaf; /* box border */
+
+    /* Major dimensions */
+    --tree-margin-left: 0px;
+
+    --entry-height: 3em; /* total height of entry: card + gap on top */
+
+    --card-indent: 2em; /* card horizontal indent (to nearest connector) */
+    --card-width: 15em; /* 'auto' is acceptable */
+    --card-height: 3.5em;
+    --card-margin-top: 2em; /* card vertical gap */
+
+    --hconnector-top: 1em;
+
+    /* Calculated values - manual calculation might be needed */
+    --connector-vident: calc(
+      var(--entry-height) / 2 + var(--card-margin-top) - 1.5em
+    );
+    --tree-indent: var(
+      --card-width
+    ); /* connector horizontal indent (to card's front) */
+
+    --box-shadow: 1px 1px 4px var(--shadow-color);
+  }
+
+  .tree ul {
+    margin: 0 0 0 var(--tree-indent); /* whole tree indentation */
+    padding: 0;
+    list-style: none;
+    color: var(--connector-color);
+    position: relative;
+  }
+
+  .tree ul:before {
+    content: "";
+    display: block;
+    width: 0px; /* width-presudo replacement */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    /* border-left: 1px solid;  */
+    /* vertical connectors */
+    background: var(--background-color); /* for dev: beige; */
+    z-index: -2;
+  }
+
+  .tree li {
+    font-weight: bold;
+    line-height: var(--entry-height);
+    margin: 0;
+    padding: var(--card-margin-top) 0 0 var(--card-indent); /* indentation + .5em */
+    position: relative;
+    /* z-index: -1; */
+  }
+
+  .tree li:before {
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+
+    border-left: 1px solid;
+    margin-top: var(--hconnector-top); /* border top width */
+    position: absolute;
+    top: var(--connector-vident); /* (line-height / 2) */
+    width: var(--card-indent); /* same with indentation */
+    /* z-index: -2; */
+  }
+
+  .tree li:last-child > .sub-category .down,
+  .tree li:last-child > .skill .down,
+  .tree li:last-child > .attribute .down {
+    border-left: none;
+  }
+
+  .tree li:last-child:before {
+    /* background: var(--background-color); same with body background */
+    bottom: 0;
+    height: auto;
+    top: var(--connector-vident); /* (line-height / 2) */
+  }
+
+  /* Continue converting all nested styles in a similar manner, expanding them as needed. */
+
+  ___ul.tree {
+    margin-left: var(
+      --tree-margin-left
+    ); /* Set indent for the root ul (whole tree indent) */
+  }
+
+  ul.tree div.category {
+    top: 0px;
+  }
+  ul.tree div.category .up,
+  ul.tree div.category .down {
+    border-left: none;
+    border-top: none;
+  }
+  ul.tree div.sub-category {
+    top: 0px;
+  }
+  ul.tree div.skill {
+    top: 0px;
+  }
+  ul.tree .sticky {
+    position: sticky;
+    width: 100%;
+  }
+
+  .tree .sub-category .up,
+  .tree .skill .up,
+  .tree .attribute .up,
+  .tree .sub-category .down,
+  .tree .skill .down,
+  .tree .attribute .down {
+    border-left: solid gray 1px;
+  }
+
+  .tree .entry {
+    background-color: var(--background-color);
+    box-sizing: border-box;
+    position: relative;
+    left: calc(-1 * var(--card-indent));
+    height: var(--card-height);
+    width: calc(var(--card-width) + var(--card-indent) * 1.5);
+  }
+
+  .tree .entry .up,
+  .tree .entry .down {
+    box-sizing: border-box;
+    height: 50%;
+    min-width: var(--card-indent);
+  }
+
+  .tree .entry .down {
+    border-top: solid gray 1px;
+  }
+
+  .tree .entry .card {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: var(--background-color);
+    height: var(--card-height);
+    width: var(--card-width);
+
+    border-radius: 5px;
+    border: 1px solid var(--box-color);
+    margin: 0;
+    max-width: calc(var(--card-width) + var(--card-indent) * 0.5);
+    min-width: calc(var(--card-width) + var(--card-indent) * 0.5);
+    padding: 0px 5px 0px 5px;
+
+    background: var(--background-color);
+    box-shadow: var(--box-shadow);
+    color: var(--connector-color);
+    font-weight: bold;
+    z-index: 1;
+  }
+
+  /* Especially for root level ul */
+
+  ul.tree div.category,
+  ul.tree div.sub-category,
+  ul.tree div.skill {
+    top: 0px;
+  }
+</style> -->

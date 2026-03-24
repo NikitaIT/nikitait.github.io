@@ -1,0 +1,44 @@
+---
+import { getImage } from "astro:assets";
+import dissertatusImage from "../assets/images/index/consult-button.png";
+const dissertatusImageOpt = await getImage({ src: dissertatusImage });
+---
+
+<div class="left-title">
+  <div class="b-root-title">
+    <h1>Dissertatus &#8212;</h1>
+    <div class="content">
+      <p>
+        an indispensable assistant for people working on writing a scientific
+        work.<br />
+        You can contact us for consultation on writing a research paper<br />
+        right now, it's completely free.
+      </p>
+      <div class="order">
+        <a
+          href="/order/pop-up-form/"
+          class="popup order-link link-resyled"
+          style={`background-image: url('${dissertatusImageOpt.src}')`}
+        >
+          Get consultation
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="right-title"></div>
+
+<style is:global>
+  .b-root-title .link-resyled {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 5px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-shadow: 0px 0px 3px rgb(34 34 34);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+</style>

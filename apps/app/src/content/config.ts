@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved -- ok
 import { defineCollection, z } from "astro:content";
 
 const blog = defineCollection({

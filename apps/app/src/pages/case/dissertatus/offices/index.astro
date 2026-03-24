@@ -1,0 +1,77 @@
+---
+type Props = {
+  offices: {
+    name: string;
+    slag: string;
+    address: string;
+    phone: string;
+  }[];
+};
+const { offices } = Astro.props;
+---
+
+<div class="w-offices">
+  <div class="wrapper">
+    <div class="our-offices abspos">our offices</div>
+    <div class="we-are-the-best abspos">
+      <p class="for-all">We help citizens of any country</p>
+      <p class="all-lang">
+        Your work can be done in Russian, English, Ukrainian and other
+        languages, and translated into any popular language in the world.
+      </p>
+    </div>
+    {
+      offices.map((office) => (
+        <div class="fixhasTooltip">
+          <button type="button" class:list={["hasTooltip abspos", office.slag]}>
+            <div class="circle" />
+            <span>{office.name}</span>
+          </button>
+          <div class:list={["hidden abspos", office.slag]}>
+            <p>{office.address}</p>
+            <p class="bold">
+              <span class="ya-phone">{office.phone}</span>
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style is:global>
+  @media (max-width: 1099px) {
+    .w-offices .hidden,
+    .w-offices .we-are-the-best {
+      display: none !important;
+    }
+    .w-offices {
+      overflow: hidden !important;
+      background: url(../content/images/promo/contacts.png) no-repeat center
+        left #3b4249 !important;
+      background-position-x: -324px !important;
+      height: 509px;
+    }
+  }
+  .w-offices {
+    & .hasTooltip {
+      background-color: initial;
+      border: initial;
+    }
+    & .fixhasTooltip {
+      &:hover,
+      &:focus,
+      &:focus-within {
+        & .hidden {
+          display: block;
+          color: white;
+          z-index: 1000;
+          padding: 10px;
+          margin-top: 25px;
+          background-color: #98a6b3;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+</style>

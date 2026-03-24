@@ -1,0 +1,26 @@
+---
+const menuItems = [
+  { text: "Order", link: "/order/form/" },
+  { text: "Services", link: "/", focus: true },
+  { text: "About Company", link: "/about/" },
+  { text: "Guarantees", link: "/guarantee/" },
+  { text: "Reviews", link: "/comments/" },
+  { text: "Contacts", link: "/contacts/" },
+  { text: "Terms", link: "/conditions/" },
+  { text: "Useful Materials", link: "/articles/" },
+];
+---
+
+<ul class="menu">
+  <ul class="menu">
+    {
+      menuItems.map((item) => (
+        <li>
+          <a class:list={{ "menu-services-link": item.focus }} href={item.link}>
+            {item.text}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</ul>

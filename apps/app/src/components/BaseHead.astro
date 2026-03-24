@@ -21,6 +21,11 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
 
+<!-- <meta
+  http-equiv="Content-Security-Policy"
+  content="default-src 'self'; img-src https://*; child-src 'none';"
+/> -->
+
 <!-- Font preloads -->
 <link
   rel="preload"
@@ -58,5 +63,14 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+{/* Theme Colour */}
+<meta content="" name="theme-color" />
+
+{/* Sitemap */}
+<!-- <link href="/sitemap-index.xml" rel="sitemap" /> -->
+
+{/* RSS auto-discovery */}
+<!-- <link href="/rss.xml" rel="alternate" title={siteConfig.title} type="application/rss+xml" /> -->
 
 <ViewTransitions />

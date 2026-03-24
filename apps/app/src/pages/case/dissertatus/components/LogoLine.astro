@@ -1,0 +1,258 @@
+---
+
+---
+
+<div class="content">
+  <table>
+    <tr>
+      <td class="logo-line-item logo">
+        <a href="/" class="logo-link"></a>
+      </td>
+      <td class="logo-line-item account">
+        <div class="w-login">
+          <a href="/customer" class="account-link">
+            <div class="key-image"></div>
+            <span class="decoration">Personal account</span>
+          </a>
+          <div class="w-login-form">
+            <form action="/login/" class="simple-ajax login-form" method="post">
+              <input
+                name="__RequestVerificationToken"
+                type="hidden"
+                value="DWvNnjy9xuIhcjg81"
+              />
+              <ul class="editor-form">
+                <li class="editor-entry">
+                  <div class="editor-field">
+                    <input
+                      data-val="true"
+                      data-val-email="Enter a valid email address"
+                      data-val-required="Enter your email"
+                      id="Email"
+                      name="Email"
+                      placeholder="Login"
+                      type="text"
+                      value=""
+                    />
+                    <span
+                      class="field-validation-valid"
+                      data-valmsg-for="Email"
+                      data-valmsg-replace="true"></span>
+                  </div>
+                </li>
+                <li class="editor-entry">
+                  <div class="editor-field">
+                    <input
+                      data-val="true"
+                      data-val-required="Enter your password"
+                      id="Password"
+                      name="Password"
+                      placeholder="Password"
+                      type="password"
+                    />
+                    <span
+                      class="field-validation-valid"
+                      data-valmsg-for="Password"
+                      data-valmsg-replace="true"></span>
+                  </div>
+                </li>
+                <li class="editor-entry">
+                  <div class="editor-field">
+                    <input
+                      checked="checked"
+                      id="RememberMe"
+                      name="RememberMe"
+                      type="checkbox"
+                      value="true"
+                    /><input name="RememberMe" type="hidden" value="false" />
+                    <label for="RememberMe">Remember me</label>
+                  </div>
+                </li>
+              </ul>
+              <input type="submit" class="submit" value="Sign in" />
+            </form>
+            <div class="password-recovery">
+              <a class="password-recovery-link" href="/login/restore-password/"
+                >Remind password</a
+              >
+            </div>
+          </div>
+        </div>
+      </td>
+      <td class="logo-line-item b-contacts">
+        <div class="w-main-phone">
+          <div class="phone place contacts-element">
+            <a href="tel:+414141414">
+              <span class="ya-phone">1-444-444-444</span>
+            </a>
+          </div>
+          <div class="city-selection-widget">
+            <a class="city-change city contacts-element" data-tip-classes="">
+              <span class="decorator"> Saint Petersburg</span>
+            </a>
+          </div>
+
+          <div class="request-wrapper">
+            <div class="request-call">
+              <div class="handset-image"></div>
+              <noindex>
+                <a
+                  href="/contacts/request-call/"
+                  class="call-request-qtip-button"
+                  rel="nofollow">Request a Call</a
+                >
+              </noindex>
+            </div>
+            <div class="w-request-call-form">
+              <form
+                action="/contacts/request-call/"
+                class="f-request-call-form"
+                method="post"
+              >
+                <div class="someinputs">
+                  <input
+                    name="MyName"
+                    id="MyName"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Name"
+                    value=""
+                  /><label for="MyName">Name</label>
+                </div>
+                <div class="validation-message input-field">
+                  <div class="manual-start phone-template">
+                    <div class="phone-number-input">
+                      <input
+                        class="editor-value phone-input phonepicker-full"
+                        data-val="true"
+                        data-val-phone="Enter a valid phone number"
+                        data-val-phone-disallowfake="False"
+                        data-val-required="Enter a phone number"
+                        id="PhoneNumber"
+                        name="PhoneNumber"
+                        placeholder=""
+                        type="tel"
+                        value=""
+                      />
+                    </div>
+                    <div class="country-code">
+                      <dl class="dropdown-flags">
+                        <dt><span class="flag"></span></dt>
+                        <dd class="phone-codes">
+                          <ul></ul>
+                        </dd>
+                      </dl>
+                    </div>
+                  </div>
+                  <span
+                    class="field-validation-valid"
+                    data-valmsg-for="PhoneNumber"
+                    data-valmsg-replace="true"></span>
+                </div>
+                <div class="validation-message input-field">
+                  <input
+                    class="name"
+                    data-val="true"
+                    data-val-required='The "Name" field is required!'
+                    id="Name"
+                    name="Name"
+                    placeholder="Name"
+                    type="text"
+                    value=""
+                  />
+                  <span
+                    class="field-validation-valid"
+                    data-valmsg-for="Name"
+                    data-valmsg-replace="true"></span>
+                </div>
+                <div class="validation-message input-field">
+                  <select
+                    class="editor-value custom-dropdown"
+                    data-columns="1"
+                    data-val="true"
+                    data-val-required='The "Call Time" field is required!'
+                    id="Time"
+                    name="Time"
+                  >
+                    <option value="">not selected</option>
+                    <option value="0">Anytime</option>
+                    <option value="10">10.00 — 11.00</option>
+                    <option value="11">11.00 — 12.00</option>
+                    <option value="12">12.00 — 13.00</option>
+                    <option value="13">13.00 — 14.00</option>
+                    <option value="14">14.00 — 15.00</option>
+                    <option value="15">15.00 — 16.00</option>
+                    <option value="16">16.00 — 17.00</option>
+                    <option value="17">17.00 — 18.00</option>
+                    <option value="18">18.00 — 19.00</option>
+                    <option value="19">19.00 — 20.00</option>
+                  </select>
+                  <span
+                    class="field-validation-valid"
+                    data-valmsg-for="Time"
+                    data-valmsg-replace="true"></span>
+                </div>
+                <div class="footer">
+                  <div class="day-picker-radio">
+                    <div class="radio-entry custom-radiobutton">
+                      <input
+                        type="radio"
+                        name="DayOfCall"
+                        value="1"
+                        checked="checked"
+                      />
+                      <label> Today</label>
+                    </div>
+                    <div class="radio-entry custom-radiobutton">
+                      <input type="radio" name="DayOfCall" value="2" />
+                      <label> Tomorrow</label>
+                    </div>
+                  </div>
+                  <input type="submit" value="Send" />
+                  <div class="pp-checkbox-p-container-call-req">
+                    <div
+                      class="pp-checkbox-container"
+                      data-ppid="pp-checkboxguidb3fae6be-48f8-4fc0-9e4b-89ead390c6da"
+                    >
+                      <input
+                        checked="True"
+                        class="pp-checkbox"
+                        id="pp-checkboxguidb3fae6be-48f8-4fc0-9e4b-89ead390c6da"
+                        name="pp-checkboxguidb3fae6be-48f8-4fc0-9e4b-89ead390c6da"
+                        type="checkbox"
+                        value="true"
+                      /><input
+                        name="pp-checkboxguidb3fae6be-48f8-4fc0-9e4b-89ead390c6da"
+                        type="hidden"
+                        value="false"
+                      />
+                      <label
+                        for="pp-checkboxguidb3fae6be-48f8-4fc0-9e4b-89ead390c6da"
+                        >Accept</label
+                      >
+                      &nbsp;<a
+                        href="/privacy/"
+                        target="_blank"
+                        title="Privacy Policy">Privacy</a
+                      >
+                      <a href="/privacy/" target="_blank" title="Privacy Policy"
+                        >&nbsp;Policy</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="w-call-request-success">
+              <div class="thank-you">
+                Your request has been sent. Soon a manager from our company will
+                contact you.
+              </div>
+              <div class="close-qtip"></div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

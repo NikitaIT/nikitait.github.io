@@ -1,0 +1,36 @@
+[
+  {
+    "name": "blogging",
+    "link": "/blog/blogging",
+    "subcategories": [
+      { "name": "this site", "value": 10, "link": "/blog/this-site" }
+    ]
+  },
+  {
+    "name": "social media",
+    "link": "/blog/social-media",
+    "subcategories": [
+      { "name": "youtube channel", "value": 45, "link": "/blog/youtube" },
+      { "name": "linkedin", "value": 10, "link": "/blog/linkedin" }
+    ]
+  },
+  {
+    "name": "public speaking",
+    "link": "/blog/public-speaking",
+    "subcategories": [
+      { "name": "conference", "value": 0, "link": "/blog/conference" },
+      { "name": "interview", "value": 10, "link": "/blog/interview" }
+    ]
+  },
+  {
+    "name": "open-source contributions",
+    "link": "/blog/open-source-contributions",
+    "subcategories": [
+      {
+        "name": "only internal projects",
+        "value": 14,
+        "link": "https://github.com/NikitaIT"
+      }
+    ]
+  }
+]

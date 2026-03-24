@@ -1,0 +1,172 @@
+---
+import { Schema } from "astro-seo-schema";
+import type { Product, WithContext, SaleEvent } from "schema-dts";
+import "./bundles/cssDissertatus.css";
+
+const { title, description, phone, canonical, yandex_verification_code } =
+  Astro.props;
+const organization = "Organization";
+const product: WithContext<Product> = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Product name",
+  image: "",
+  description: `${description} ☎ ${phone}`,
+  mpn: "3",
+  brand: {
+    "@type": "Organization",
+    name: organization,
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "9",
+  },
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "USD",
+    price: "120",
+    availability: "https://schema.org/InStock",
+    seller: {
+      "@type": "Organization",
+      name: organization,
+    },
+  },
+} as const;
+const saleEvents: WithContext<SaleEvent>[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SaleEvent",
+    eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    name: "👍 Оригинальность",
+    description:
+      "Научные диссертации России любого профиля. Соответствие требованиям ВАК. Помощь в публикации работ! ☎ 8-800-511-33-09",
+    startDate: "2024-02-01T11:55:30+00:00",
+    endDate: "2024-03-01T11:55:30+00:00",
+    url: "https://www.dissertatus.ru/",
+    image:
+      "https://www.homework.ru/Content/images/favicons/apple-touch-icon.png",
+    location: {
+      "@type": "Place",
+      // "@context": "http://schema.org",
+      name: "",
+      address: {
+        "@type": "PostalAddress",
+        // "@context": "https://schema.org",
+        streetAddress: "Москва",
+        addressLocality: "Москва",
+        addressRegion: "Москва",
+      },
+    },
+    performer: { "@type": "PerformingGroup", name: "HomeWork" },
+    organizer: {
+      "@type": "Organization",
+      name: "HomeWork.ru",
+      url: "https://www.dissertatus.ru",
+    },
+    about: "Высокая оригинальность",
+    offers: {
+      "@type": "Offer",
+      price: "",
+      priceCurrency: "RUB",
+      availability: "https://schema.org/InStock",
+      url: "https://www.dissertatus.ru/",
+      validFrom: "2024-02-01T11:55:30+00:00",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SaleEvent",
+    eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    name: "💰 Доступные цены",
+    description:
+      "Научные диссертации России любого профиля. Соответствие требованиям ВАК. Помощь в публикации работ! ☎ 8-800-511-33-09",
+    startDate: "2024-02-01T11:55:30+00:00",
+    endDate: "2024-03-01T11:55:30+00:00",
+    url: "https://www.dissertatus.ru/",
+    image:
+      "https://www.homework.ru/Content/images/favicons/apple-touch-icon.png",
+    location: {
+      "@type": "Place",
+      name: "",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Москва",
+        addressLocality: "Москва",
+        addressRegion: "Москва",
+      },
+    },
+    performer: { "@type": "PerformingGroup", name: "HomeWork" },
+    organizer: {
+      "@type": "Organization",
+      name: "HomeWork.ru",
+      url: "https://www.dissertatus.ru",
+    },
+    about: "Высокая оригинальность",
+    offers: {
+      "@type": "Offer",
+      price: "",
+      priceCurrency: "RUB",
+      availability: "https://schema.org/InStock",
+      url: "https://www.dissertatus.ru/",
+      validFrom: "2024-02-01T11:55:30+00:00",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SaleEvent",
+    eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    name: "🛡️ Анонимность",
+    description:
+      "Научные диссертации России любого профиля. Соответствие требованиям ВАК. Помощь в публикации работ! ☎ 8-800-511-33-09",
+    startDate: "2024-02-01T11:55:30+00:00",
+    endDate: "2024-03-01T11:55:30+00:00",
+    url: "https://www.dissertatus.ru/",
+    image:
+      "https://www.homework.ru/Content/images/favicons/apple-touch-icon.png",
+    location: {
+      "@type": "Place",
+      name: "",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Москва",
+        addressLocality: "Москва",
+        addressRegion: "Москва",
+      },
+    },
+    performer: { "@type": "PerformingGroup", name: "HomeWork" },
+    organizer: {
+      "@type": "Organization",
+      name: "HomeWork.ru",
+      url: "https://www.dissertatus.ru",
+    },
+    about: "Высокая оригинальность",
+    offers: {
+      "@type": "Offer",
+      price: "",
+      priceCurrency: "RUB",
+      availability: "https://schema.org/InStock",
+      url: "https://www.dissertatus.ru/",
+      validFrom: "2024-02-01T11:55:30+00:00",
+    },
+  },
+];
+const ldJSONs = [product, ...saleEvents] as const;
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <title>
+    {title} - Call: {phone}
+  </title>
+  <title>{title}</title>
+  <meta name="title" content={title} />
+  <meta name="description" content={`${description} ☎ ${title}`} />
+  <link rel="canonical" href={canonical} />
+  <meta name="yandex-verification" content={yandex_verification_code} />
+  {ldJSONs.map((item) => <Schema item={item} />)}
+  <link href="./bundles/cssDissertatus.css" rel="stylesheet" type="text/css" />
+</head>

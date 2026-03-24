@@ -54,6 +54,13 @@
       "**/gen": true,
       "**/.tsbuildinfo": true
     },
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "astro", // Enable .astro
+      "typescript", // Enable .ts
+      "typescriptreact" // Enable .tsx
+    ],
     "search.useIgnoreFiles": true,
     // exclude ignored files from search
     // todo: need include .env

@@ -1,0 +1,197 @@
+---
+import Head from "./components/Head.astro";
+import IE9 from "./components/IE9.astro";
+import SetCookie from "./components/SetCookie.astro";
+import Services from "./services/Services.astro";
+import ServicesMenu from "./services/ServicesMenu.astro";
+import Offices from "./offices/index.astro";
+import Footer from "./footer.astro";
+import LogoLine from "./components/LogoLine.astro";
+import Information from "./components/Information.astro";
+// import YM from "./components/counters/YM.astro";
+import Promo from "./components/Promo.astro";
+import Help from "./components/Help.astro";
+import MainTitle from "./components/MainTitle.astro";
+import Menu from "./components/Menu.astro";
+import { getImage } from "astro:assets";
+import dissertatusImage from "./assets/images/dissertatus.jpg";
+
+const offices = [
+  {
+    name: "New York",
+    slag: "spb",
+    address: "123 Main Street",
+    phone: "555-123-4567",
+  },
+  {
+    name: "Los Angeles",
+    slag: "msk",
+    address: "456 Elm Avenue",
+    phone: "555-987-6543",
+  },
+  {
+    name: "Chicago",
+    slag: "ekb",
+    address: "789 Oak Avenue",
+    phone: "555-555-5555",
+  },
+  {
+    name: "Houston",
+    slag: "nsk",
+    address: "321 Pine Street",
+    phone: "555-555-1212",
+  },
+  {
+    name: "Philadelphia",
+    slag: "kazan",
+    address: "987 Cedar Road",
+    phone: "555-555-9999",
+  },
+  {
+    name: "Phoenix",
+    slag: "nn",
+    address: "654 Willow Lane",
+    phone: "555-555-5555",
+  },
+];
+const services = [
+  {
+    title: "Candidate's dissertation",
+    id: 1,
+    description:
+      "final qualifying work, written based on the results of studying in graduate school at the university",
+    price: 1000,
+  },
+  {
+    title: "Doctoral dissertation",
+    id: 2,
+    description: "a work that leads to the award of a doctorate degree",
+    price: 1500,
+  },
+  {
+    title: "Master's dissertation",
+    id: 3,
+    description:
+      "similar to a diploma project but has a more in-depth scientific nature",
+    price: 120,
+  },
+  {
+    title: "Publication of scientific papers in HAK publications",
+    id: 4,
+    description:
+      "We will help you publish your scientific articles in journals and publications of the Higher Attestation Commission for further protection",
+    price: 115,
+  },
+  {
+    title: "Theses abstracts",
+    id: 5,
+    description: "a document outlining the main essence of the research work",
+    price: 120,
+  },
+  {
+    title: "Research article",
+    id: 9,
+    description:
+      "writing and publishing several articles is a mandatory stage in defending a scientific work",
+    price: 50,
+  },
+  {
+    title: "Graduate abstract",
+    id: 6,
+    description:
+      "research work required to access admissions postgraduate exams",
+    price: 50,
+  },
+  {
+    title: "Monograph",
+    id: 7,
+    description: "work devoted to a detailed study of a specific topic",
+    price: 600,
+  },
+  {
+    title: "Business plan for business",
+    id: 8,
+    description:
+      "professional business plan for developing a company, obtaining subsidies or loans",
+    price: 100,
+  },
+];
+
+const dissertatusImageOpt = await getImage({ src: dissertatusImage });
+---
+
+<!doctype html>
+<!--[if IE 9]><html lang="en" class="lt-ie10"><![endif]--><!--[if gt IE 9]><!-->
+<html lang="en">
+  <!--<![endif]-->
+  <Head />
+  <!-- <YM init_code={init_code} /> -->
+  <IE9 />
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/Content/images/favicons/apple-touch-icon.png"
+  />
+  <link rel="manifest" href="/site.json" />
+  <link
+    rel="mask-icon"
+    href="/Content/images/favicons/safari-pinned-tab.svg"
+    color="#3b434a"
+  />
+  {
+    /** https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/dn320426(v=vs.85) */
+  }
+  <meta name="msapplication-TileColor" content="#da532c" />
+  <meta name="msapplication-config" content="/browserconfig.xml" />
+  <meta name="theme-color" content="#3b434a" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  />
+
+  <body>
+    <header>
+      <div class="b-logo-line b-site-row">
+        <LogoLine />
+      </div>
+      <nav class="b-menu-line b-site-row">
+        <div class="column-menu-button"></div>
+        <div class="content">
+          <Menu />
+        </div>
+      </nav>
+      <ServicesMenu services={services} />
+    </header>
+    <div
+      class="b-site-row b-title b-main-title"
+      style={`background-image: url('${dissertatusImageOpt.src}')`}
+    >
+      <div class="content">
+        <MainTitle />
+      </div>
+    </div>
+    <main class="main-content">
+      <div class="v-root">
+        <div class="b-site-row b-content wrapper1">
+          <div class="content">
+            <div class="b-work-types">
+              <Services services={services} />
+            </div>
+            <Information />
+          </div>
+        </div>
+        <Offices offices={offices} />
+        <div class="b-site-row b-content wrapper3">
+          <div class="content">
+            <Promo />
+          </div>
+        </div>
+        <div class="b-site-row b-content wrapper1 b-long-description">
+          <Help />
+        </div>
+      </div>
+    </main>
+    <Footer />
+    {[].map(({ domain, adId }) => <SetCookie domain={domain} adId={adId} />)}
+  </body>
+</html>

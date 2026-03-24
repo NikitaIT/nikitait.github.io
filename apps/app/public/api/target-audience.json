@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Roger Rabbit",
+    "link": "/blog/potential-employer",
+    "role": "Product Owner",
+    "description": "Potential employers. Acme corp.",
+    "avatar": {
+      "src": "/target-audience/product-owner.png"
+    }
+  },
+  {
+    "name": "Uncle Bob",
+    "link": "/blog/tech-peers",
+    "role": "Software Engineer",
+    "description": "Peers in the tech community, fellow developers. Always looking for new opportunities.",
+    "avatar": {
+      "src": "/target-audience/uncle-bob.png"
+    }
+  },
+  {
+    "name": "Maya Grossman",
+    "link": "/blog/career-coach",
+    "role": "Career Coach",
+    "description": "Turn Your Career Goals Into Success Stories",
+    "avatar": {
+      "src": "/target-audience/career-coach.jpeg"
+    }
+  },
+  {
+    "name": "Valerie Hill",
+    "link": "/blog/potential-employers",
+    "role": "Hiring Manager",
+    "description": "Potential employers.",
+    "avatar": {
+      "src": "/target-audience/hr.png"
+    }
+  }
+]

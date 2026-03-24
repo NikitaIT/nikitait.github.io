@@ -1,0 +1,48 @@
+---
+type Props = {
+  init_code: number;
+};
+const { init_code } = Astro.props;
+---
+
+<!-- Yandex.Metrika counter -->
+<script is:inline define:vars={{ init_code }}>
+  (function (m, e, t, r, i, k, a) {
+    m[i] =
+      m[i] ||
+      function () {
+        (m[i].a = m[i].a || []).push(arguments);
+      };
+    m[i].l = 1 * new Date();
+    (k = e.createElement(t)),
+      (a = e.getElementsByTagName(t)[0]),
+      (k.async = 1),
+      (k.src = r),
+      a.parentNode.insertBefore(k, a);
+  })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+  ym(init_code, "init", {
+    clickmap: true,
+    trackLinks: true,
+    accurateTrackBounce: true,
+    webvisor: true,
+    trackHash: true,
+    ecommerce: "dataLayer",
+  });
+</script>
+<noscript
+  ><div>
+    <img
+      src={`https://mc.yandex.ru/watch/${init_code}`}
+      style="position: absolute; left: -9999px"
+      alt=""
+    />
+  </div></noscript
+>
+<script is:inline define:vars={{ init_code }}>
+  document.addEventListener("yaCounter" + init_code + "inited", function () {
+    if (window["yaCounter" + init_code]) {
+      window["yaCounter" + init_code].reachGoal("userwebmaster");
+    }
+  });
+</script>
+<!-- /Yandex.Metrika counter -->

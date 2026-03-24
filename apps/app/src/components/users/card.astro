@@ -1,0 +1,15 @@
+---
+import { type User } from "./User";
+
+type Props = User;
+const { name, link, role, description, avatar } = Astro.props;
+---
+
+<a class="bg-white rounded-lg p-4 shadow-md" href={link}>
+  <img class="mx-auto size-24 rounded-full" src={avatar.src} alt="User Name" />
+  <div class="mt-4 text-center">
+    <p class="text-lg font-semibold">{name}</p>
+    <p class="text-gray-600 text-sm">{role}</p>
+    <p class="text-gray-500 mt-2 text-sm">{description}</p>
+  </div>
+</a>

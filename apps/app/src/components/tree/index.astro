@@ -1,0 +1,34 @@
+---
+import TreeUl from "./TreeUl.astro";
+---
+
+<TreeUl
+  children={[
+    {
+      element: "Astro",
+      children: [
+        {
+          element: "Components",
+          children: [
+            {
+              element: "Header",
+              children: [{ element: "Link", children: [] }],
+            },
+            { element: "Footer", children: [] },
+          ],
+        },
+        {
+          element: "Pages",
+          children: [
+            { element: "Home", children: [] },
+            {
+              element: "Blog",
+              children: [{ element: "Item", children: [] }],
+            },
+          ],
+        },
+      ],
+    },
+  ]}
+  ]}
+/>

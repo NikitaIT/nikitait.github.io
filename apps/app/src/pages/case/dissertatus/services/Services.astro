@@ -1,0 +1,66 @@
+---
+import { getImage } from "astro:assets";
+import dissertatusImage from "../assets/images/index/order-button.png";
+import dissertatusImage2 from "../assets/images/index/mobile-order-button.png";
+const dissertatusImageOpt = await getImage({ src: dissertatusImage });
+const dissertatusImageOpt2 = await getImage({ src: dissertatusImage2 });
+type Props = {
+  services: {
+    title: string;
+    description: string;
+    price: number;
+    id: number;
+  }[];
+};
+const { services } = Astro.props;
+---
+
+<ul class="w-services">
+  {
+    services.map((service) => (
+      <li class="work-type">
+        <div class="about">
+          <div class="name">
+            <div>{service.title}</div>
+          </div>
+          <div class="description">{service.description}</div>
+        </div>
+        <div class="price">
+          <div class="value">
+            from <span>${service.price}</span>
+          </div>
+          <div class="order">
+            <a href={`/order/form/?WorkType=${service.id}`} class="order-link">
+              Order now
+            </a>
+          </div>
+        </div>
+      </li>
+    ))
+  }
+</ul>
+<style
+  define:vars={{
+    dissertatusImage: `url(${dissertatusImageOpt.src})`,
+    dissertatusImage2: `url(${dissertatusImageOpt2.src})`,
+  }}
+>
+  .w-services .work-type .price .order .order-link {
+    background-image: var(--dissertatusImage) !important;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 6px;
+    text-shadow: 0px 0px 3px rgb(34 34 34);
+    text-indent: initial !important;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  @media (max-width: 1099px) {
+    .w-services .work-type .price .order .order-link {
+      background-image: var(--dissertatusImage2) !important;
+    }
+  }
+</style>

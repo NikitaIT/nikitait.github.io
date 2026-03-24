@@ -1,0 +1,47 @@
+---
+type Props = {
+  services: {
+    title: string;
+    id: number;
+  }[];
+};
+const { services } = Astro.props;
+---
+
+<div class="select-service">
+  <label for="select-service-toggle">
+    <div class="select-service-icon"></div>
+    <div class="select-service-text">Select service</div>
+    <div class="select-service-arrow"></div>
+  </label>
+  <input
+    type="checkbox"
+    id="select-service-toggle"
+    name="select-service-toggle"
+    class="select-service-toggle"
+  />
+
+  <div class="select-service-list">
+    {
+      services.map((service) => (
+        <a href={"/order/form/?WorkType=" + service.id} class="order-link">
+          {service.title}
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .select-service > label {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .select-service-toggle {
+    visibility: hidden;
+    &:checked + .select-service-list {
+      display: block;
+    }
+  }
+</style>

@@ -1,0 +1,13 @@
+---
+type Props = {
+  domain: string;
+  adId: string | number;
+};
+const { domain, adId } = Astro.props;
+---
+
+<iframe
+  src={`${domain}/shared/set-cookie-from-mirror/?adId=${adId}`}
+  width="0"
+  height="0"
+  style="display: none"></iframe>

@@ -10,7 +10,7 @@ const stage = {
   standardized: 4, // This idea is part of the web. Recommendation
 };
 // https://nextjs.org/docs/messages/postcss-shape
-const preserve = false;
+const preserve = true;
 
 // throw require("postcss-nesting")();
 
@@ -30,7 +30,7 @@ module.exports = {
       {
         stage: stage.experimental,
         preserve,
-        "nesting-rules": false,
+        "nesting-rules": false, // tailwindcss/nesting already defined
         autoprefixer: { grid: "autoplace" },
       },
     ],

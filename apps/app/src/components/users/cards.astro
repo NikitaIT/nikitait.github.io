@@ -1,0 +1,10 @@
+---
+import usersJSON from "../../../public/api/target-audience.json";
+import Card from "./card.astro";
+
+const users = usersJSON;
+---
+
+<div class="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3">
+  {users.map((x) => <Card {...x} />)}
+</div>
